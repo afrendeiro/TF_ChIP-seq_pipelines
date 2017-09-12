@@ -214,7 +214,7 @@ def process(args, prj, sample):
     pipe.timestamp("Quantifying read counts with kallisto")
     cmd = tk.kallisto(
         inputFastq=sample.trimmed1 if sample.paired else sample.trimmed,
-        inputFastq2=sample.trimmed1 if sample.paired else None,
+        inputFastq2=sample.trimmed2 if sample.paired else None,
         outputDir=sample.dirs.quant,
         outputBam=sample.pseudomapped,
         transcriptomeIndex=prj.config["annotations"]["kallistoindex"][sample.genome],
